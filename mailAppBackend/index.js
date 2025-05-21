@@ -9,6 +9,7 @@ app.use(express.json());
 
 
 
+
 // const readParsedMailFile = () => {
 //   try {
 //       const rawData = fs.readFileSync('parsed_email.js');
@@ -21,7 +22,7 @@ app.use(express.json());
 
 // =================================================================================
 const imaps = require('imap-simple');
-
+//used IMAP for email mapping
 
 // IMAP configuration
 const imapConfig = {
