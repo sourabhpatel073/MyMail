@@ -8,6 +8,26 @@ app.use(cors());
 app.use(express.json());
 
 
+app.post('/register', async (req, res) => {
+  const { email, loginPassword, gmailAppPassword, name } = req.body;
+
+  try {
+    // Check if user exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ message: 'User already exists' });
+    }
+
+    // Create user
+    const newUser = new User({ email, loginPassword, gmailAppPassword, name });
+    await newUser.save();
+
+    res.status(201).json({ message: 'User registered successfully' });
+  } catch (err) {
+    console.error('Registration error:', err);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
 
 
 // const readParsedMailFile = () => {
