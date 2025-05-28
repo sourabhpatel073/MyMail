@@ -256,3 +256,27 @@ app.listen(PORT, () => {
 
 
 
+
+app.get('/pagenum',async(req,res)=>{
+  
+  const page = parseInt(req.query.page) || 1; // Current page number, default is 1
+    const itemsPerPage = 6;
+    
+    // Read data from the file
+    // const allData = readParsedMailFile();
+    const allData = await fetchEmails()||[];
+    console.log('alldata',allData)
+    // Calculate start and end index for the current page
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = page * itemsPerPage;
+
+    // Extract data for the current page
+    const paginatedData = await allData.slice(startIndex, endIndex)||[];
+
+    res.json({
+        page: page,
+        totalPages: Math.ceil(allData.length / itemsPerPage),
+        data: paginatedData
+    });
+
+})
