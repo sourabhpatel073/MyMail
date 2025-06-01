@@ -141,22 +141,15 @@ async function fetchEmails() {
                 body:body,
                 attachment:attach
               }
-              return messages
-            // console.log(JSON.stringify(emailObj)+'\n')
-                // try {   
-                //     await fs.appendFileSync(filename, JSON.stringify(emailObj)+',\n', { encoding: 'utf-8' });
+             
+           
+                try {   
+                    await fs.appendFileSync(filename, JSON.stringify(emailObj)+',\n', { encoding: 'utf-8' });
 
-                // } catch (error) {
-                //     console.error('Error writing emails to file:', error);
-                // }
-            // console.log('sender '+sender.mailbox +"@"+ sender.host)
-            // console.log('DATE '+date)
-            // console.log('TO '+toList)
-            // console.log('CC '+ccList)
-            // console.log('BCC '+bccList)
-            // console.log('subject '+subject)
-            // console.log('BODY '+body)
-            // console.log('ATT '+attachments)
+                } catch (error) {
+                    console.error('Error writing emails to file:', error);
+                }
+          return messages
         }
 
         // Close the connection
@@ -168,7 +161,6 @@ async function fetchEmails() {
         console.error('Error fetching emails:', error);
     }
 }
-
 
 
 
