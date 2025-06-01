@@ -77,8 +77,8 @@ const imaps = require('imap-simple');
 // IMAP configuration
 const imapConfig = {
     imap: {
-        user: 'sourabhpatel073@gmail.com', // Your email address
-        password: 'bmop gqlt sovq einw', // Your email password
+        user: 'mail', // Your email address
+        password: 'pass', // Your email password
         host: 'imap.gmail.com', // IMAP server hostname
         port: 993, // IMAP server port (993 for SSL)
         tls: true,
