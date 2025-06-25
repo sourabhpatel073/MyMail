@@ -18,6 +18,7 @@ mongoose.connect(process.env.MONGO_URI, {
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.error("MongoDB error:", err));
 
+//registeration
 
 app.post('/register', async (req, res) => {
   const { email, loginPassword, gmailAppPassword, name } = req.body;
@@ -40,7 +41,7 @@ app.post('/register', async (req, res) => {
   }
 });
 
-
+//login 
 app.post('/login', async (req, res) => {
   const { email, loginPassword } = req.body;
 
